@@ -39,3 +39,6 @@ Output:
 
 **/
 
+SELECT user_id,
+CONCAT(UCASE(SUBSTR(users.name,1,1)),LCASE(SUBSTR(users.name,2))) as name from Users
+ORDER BY user_id;
