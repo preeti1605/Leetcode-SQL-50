@@ -45,3 +45,7 @@ Explanation: john@example.com is repeated two times. We keep the row with the sm
 
 **/
 
+DELETE p1
+FROM Person AS p1
+JOIN Person AS p2
+ON p1.email = p2.email AND p2.id < p1.id
