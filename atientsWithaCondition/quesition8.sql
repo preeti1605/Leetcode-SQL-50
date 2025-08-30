@@ -45,4 +45,6 @@ Explanation: Bob and George both have a condition that starts with DIAB1.
 
 **/
 
-
+SELECT patient_id, patient_name, conditions
+FROM Patients
+WHERE conditions LIKE "%DIAB1%"
