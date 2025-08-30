@@ -86,3 +86,13 @@ Constraints:
 There are no employees with the exact same name, salary and department.
 **/
 
+SELECT Department, Employee, Salary
+FROM (
+    SELECT b.name AS Department, a.name AS Employee, a.salary AS Salary,
+    DENSE_RANK() OVER (PARTITION BY b.name ORDER BY a.salary DESC) AS rn
+    FROM Employee AS a
+    LEFT JOIN Department AS b
+    ON a.departmentId = b.id
+) AS c
+WHERE rn <= 3
+
